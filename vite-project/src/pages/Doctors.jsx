@@ -1,18 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { AppContext } from '../context/Appcontext';
 import { useNavigate } from 'react-router-dom';
-
-
-
 
 const Doctor = () => {
 
   const { speciality } = useParams();
 
   const [filterDoc, setfilterDoc] = useState([]);
-
-
   const navigate = useNavigate();
 
   const { doctors } = useContext(AppContext);
@@ -46,10 +41,7 @@ const Doctor = () => {
         </div>
 
         <div className="w-full grid grid-cols-5 gap-4 gap-y-6">
-
-
           {
-
             filterDoc.map((items, index) => (
               <div onClick={() => navigate(`/doctors/appointment/${items._id}`)
               }
@@ -57,28 +49,20 @@ const Doctor = () => {
                 className="border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:-translate-y-2 transition-all">
                 <img className='bg-blue-50' src={items.image} alt="" />
 
-
                 <div className=' p-4'>
                   <div className='flex items-center gap-2 text-sm text-green-500 text-center'>
-                    <p className=' w-2 h-2 bg-green-500 rounded-full'>
-
-                    </p><p>Available</p>
-
+                    <p className=' w-2 h-2 bg-green-500 rounded-full'></p>
+                    <p>Available</p>
                   </div>
                   <p className='text-gray-900 text-lg font-medium'>{items.name}</p>
                   <p className='text-gray-600 text-sm'>{items.speciality}</p></div>
               </div>
 
             ))
-
-
-
           }
         </div>
       </div>
-
     </div>
   )
 }
-
-export default Doctor
+export default Doctor;

@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [showMenu, setShowMenu] = useState(false);
+
   const [token, setToken] = useState(true);
 
   return (
     <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
-      <img onClick={()=>navigate('/')} className="w-44 cursor-pointer" src={assets.vmeet} alt="Logo" />
+      <img onClick={() => navigate('/')} className="w-44 cursor-pointer" src={assets.vmeet} alt="Logo" />
 
       <ul className="hidden md:flex items-start gap-5 font-medium">
         <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
@@ -17,10 +17,10 @@ const Navbar = () => {
           <hr className="border-none outline-none h-0.5 bg-blue-700 w-3/5 m-auto hidden" />
         </NavLink>
 
-       <NavLink to="/doctors" className={({ isActive }) => (isActive ? "active" : "")}>
-  <li className="py-1">All Doctors</li>
-  <hr className="border-none outline-none h-0.5 bg-blue-700 w-3/5 m-auto hidden" />
-</NavLink>
+        <NavLink to="/doctors" className={({ isActive }) => (isActive ? "active" : "")}>
+          <li className="py-1">All Doctors</li>
+          <hr className="border-none outline-none h-0.5 bg-blue-700 w-3/5 m-auto hidden" />
+        </NavLink>
 
 
         <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
